@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ku">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ناسینی یەکتری - کوردستان</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    background: linear-gradient(135deg,#fceabb,#f8b500);
+    color:#333;
+}
+
+/* Header */
+header {
+    background:#4a90e2;
+    color:white;
+    padding:30px 0;
+    text-align:center;
+    position:relative;
+}
+
+/* Navigation */
+nav {
+    background:#fff;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+nav a {
+    margin:0 15px;
+    text-decoration:none;
+    color:#4a90e2;
+    font-weight:600;
+    transition:0.3s;
+}
+nav a:hover { color:#357ABD; }
+
+/* Sections */
+section {
+    padding:60px 20px;
+    max-width:900px;
+    margin:auto;
+    background:rgba(255,255,255,0.9);
+    border-radius:12px;
+    margin-bottom:30px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    position:relative;
+    overflow:hidden;
+}
+
+/* Section titles */
+h2 {
+    color:#4a90e2;
+    display:flex;
+    align-items:center;
+    animation:fadeIn 1s ease;
+}
+
+/* Icons */
+.icon {
+    width:50px;
+    height:50px;
+    background:#4a90e2;
+    border-radius:50%;
+    text-align:center;
+    line-height:50px;
+    color:white;
+    font-weight:bold;
+    font-size:24px;
+    margin-right:10px;
+    flex-shrink:0;
+    transition:transform 0.3s;
+}
+.icon:hover { transform:scale(1.2) rotate(15deg); }
+
+/* Footer */
+footer {
+    text-align:center;
+    padding:25px;
+    background:#4a90e2;
+    color:white;
+}
+
+/* Forms */
+input,textarea,button {
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+button {
+    background:#4a90e2;
+    color:white;
+    border:none;
+    cursor:pointer;
+    transition:0.3s;
+}
+button:hover {
+    background:#357ABD;
+    transform:scale(1.05);
+}
+
+/* Popup */
+.popup {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+}
+.popup .popup-content {
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    text-align:center;
+    max-width:400px;
+    animation:popupFade 0.5s ease;
+}
+.popup .close-btn {
+    margin-top:20px;
+    background:#ff4c4c;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* Animations */
+@keyframes popupFade {
+    0% { opacity:0; transform:scale(0.8); }
+    100% { opacity:1; transform:scale(1); }
+}
+@keyframes fadeIn {
+    0% { opacity:0; transform:translateY(20px); }
+    100% { opacity:1; transform:translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>ناسینی یەکتری</h1>
+<p>مۆدێرن | کوردستان</p>
+<span class="icon" onclick="showPopup()">i</span>
+</header>
+
+<nav>
+<a href="#about">دەربارەی من</a>
+<a href="#contact">پەیوەندی</a>
+<a href="#explore">گەران</a>
+<a href="#interact">یکترناسین</a>
+<a href="#register">خۆتۆمارکردن</a>
+</nav>
+
+<section id="about">
+<h2><span class="icon">👤</span>دەربارەی من</h2>
+<p>زانیارییەکی کورتە سەبارەت بە من و کارەکانم.</p>
+</section>
+
+<section id="contact">
+<h2><span class="icon">✉️</span>پەیوەندی</h2>
+<p>دەتوانیت پەیوەندی بکەیت بە ئیمەیڵ یان ژمارەی تەلەفۆن.</p>
+</section>
+
+<section id="explore">
+<h2><span class="icon">🔍</span>گەران</h2>
+<p>بابەت و مەتریالەکان بگەڕێ و جیاوازی زیاتر بدۆزەوە.</p>
+</section>
+
+<section id="interact">
+<h2><span class="icon">💬</span>یکترناسین</h2>
+<p>پەیوەندیەکی فەرمی و هەست بە کەسایەتی تر.</p>
+</section>
+
+<section id="register">
+<h2><span class="icon">📝</span>خۆتۆمارکردن</h2>
+<form>
+<input type="text" placeholder="ناوت بنووسە" required>
+<input type="email" placeholder="ئیمەیڵت بنووسە" required>
+<textarea placeholder="پەیامەکەت بنووسە" rows="5" required></textarea>
+<button type="submit">ناردن</button>
+</form>
+</section>
+
+<footer>
+&copy; 2025 ناسینی یەکتری - کوردستان
+</footer>
+
+<div class="popup" id="popup">
+<div class="popup-content">
+<h3>پاپ‌ئاپ</h3>
+<p>خۆتۆمارکردن یان زانیاری زیاتر.</p>
+<button class="close-btn" onclick="closePopup()">داخستن</button>
+</div>
+</div>
+
+<script>
+function showPopup(){document.getElementById('popup').style.display='flex';}
+function closePopup(){document.getElementById('popup').style.display='none';}
+</script>
+
+</body>
+</html>
