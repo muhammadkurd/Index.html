@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ku">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ناسینی یەکتری</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #fceabb, #f8b500);
+            color: #333;
+            transition: background 0.5s ease;
+        }
+
+        header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            animation: fadeInDown 1s ease-out;
+            position: relative;
+        }
+
+        header .popup-icon {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        nav {
+            background-color: #fff;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #4a90e2;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #357ABD;
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+            background: rgba(255,255,255,0.9);
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        h2 {
+            color: #4a90e2;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #4a90e2;
+            color: white;
+            margin-top: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 8px rgba(74,144,226,0.3);
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #357ABD;
+            transform: scale(1.05);
+        }
+
+        /* Popup */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        #popup .popup-content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        #popup .close-btn {
+            background: #ff4c4c;
+            margin-top: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>ناسینی یەکتری</h1>
+    <p>خۆتۆمارکردن و یکترناسین</p>
+    <i class="fas fa-info-circle popup-icon" onclick="showPopup()"></i>
+</header>
+
+<nav>
+    <a href="#about">دەربارەی من</a>
+    <a href="#contact">پەیوەندی</a>
+    <a href="#explore">گەران</a>
+    <a href="#interact">یکترناسین</a>
+    <a href="#register">خۆتۆمارکردن</a>
+</nav>
+
+<section id="about">
+    <h2>دەربارەی من</h2>
+    <p>ئەمە زانیارییەکی کورتە سەبارەت بە من. دەتوانیت لێرە باسی هەستی خۆت، تواناکانت و ئەو شتانی بکەیت کە دەتەوێت بڵێیت.</p>
+</section>
+
+<section id="contact">
+    <h2>پەیوەندی</h2>
+    <p>دەتوانیت پەیوەندی بکەیت بە ئیمەیڵ یان ژمارەی تەلەفۆن. هەروەها دەتوانیت لە ڕێگەی فۆڕمەکە پەیامێک نێریت.</p>
+</section>
+
+<section id="explore">
+    <h2>گەران</h2>
+    <p>لەوێ دەتوانیت بابەت و مەتریالە جیاوازەکان بگەڕێیت، ڕووتینی نوێ و بەشی تایبەتی خۆت هەڵبژێریت.</p>
+</section>
+
+<section id="interact">
+    <h2>یکترناسین</h2>
+    <p>دەتوانیت لە ڕێگەی ئەم بەشە فەرمی بە کەسایەتییەکی تری پەیوەندی بکەیت و فیدباک بدەیت.</p>
+</section>
+
+<section id="register">
+    <h2>خۆتۆمارکردن</h2>
+    <form>
+        <input type="text" placeholder="ناوت بنووسە" required>
+        <input type="email" placeholder="ئیمەیڵت بنووسە" required>
+        <textarea placeholder="پەیامەکەت بنووسە" rows="5" required></textarea>
+        <button type="submit">ناردن</button>
+    </form>
+</section>
+
+<footer>
+    &copy; 2025 ناسینی یەکتری - هەموو مافەکان پارێزراون
+</footer>
+
+<!-- Popup -->
+<div id="popup">
+    <div class="popup-content">
+        <h3>ئەوە وێبسایتەکەتە!</h3>
+        <p>پاپ‌ئاپەکی فەرمی بۆ گەیشتن بە زانیاری زیاتر و خۆتۆمارکردن.</p>
+        <button class="close-btn" onclick="closePopup()">داخستن</button>
+    </div>
+</div>
+
+<script>
+    function showPopup() {
+        document.getElementById('popup').style.display = 'flex';
+    }
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
