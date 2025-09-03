@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ku">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>برادۆست - وێبسایتی هەواڵ</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Basic Reset */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Poppins',sans-serif; background:#f5f5f5; color:#333; scroll-behavior:smooth; }
+
+/* Header */
+header { background:linear-gradient(90deg,#0055a5,#0077cc); color:white; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.2);}
+header h1 { font-size:28px; }
+nav { display:flex; gap:15px; align-items:center; flex-wrap:wrap;}
+nav a { color:white; text-decoration:none; font-weight:600; padding:5px 10px; transition:0.3s; border-radius:5px;}
+nav a:hover { background:#ffcc00; color:#0055a5;}
+.search-box { position:relative;}
+.search-box input { padding:5px 10px; border-radius:5px; border:none; outline:none;}
+
+/* Sections */
+section { max-width:1000px; margin:40px auto; background:white; border-radius:10px; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); position:relative; overflow:hidden;}
+h2 { color:#0055a5; margin-bottom:20px; display:flex; align-items:center; }
+.icon { margin-right:10px; font-size:24px; transition:transform 0.3s; }
+.icon:hover { transform:scale(1.2) rotate(15deg); }
+
+/* News Carousel */
+.carousel { position:relative; overflow:hidden; border-radius:10px; }
+.carousel-track { display:flex; transition:transform 0.5s ease-in-out; }
+.news-item { min-width:100%; padding:20px; border-radius:5px; background:#fff; margin-right:10px; transition:transform 0.3s, box-shadow 0.3s; }
+.news-item:hover { transform:translateY(-5px); box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+.badge { background:#ffcc00; color:#0055a5; font-weight:600; padding:3px 8px; border-radius:5px; margin-left:10px; font-size:12px; }
+
+/* Carousel Buttons */
+.carousel-buttons { position:absolute; top:50%; width:100%; display:flex; justify-content:space-between; transform:translateY(-50%);}
+.carousel-buttons button { background:rgba(0,0,0,0.5); color:white; border:none; padding:10px; cursor:pointer; border-radius:50%; transition:0.3s; }
+.carousel-buttons button:hover { background:#ffcc00; color:#0055a5; }
+
+/* Video Section */
+.video-container { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.1); margin-top:20px; }
+.video-container iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
+
+/* Contact Form */
+input,textarea,button { width:100%; padding:12px; margin:10px 0; border-radius:8px; border:1px solid #ccc; font-size:16px; }
+input:focus,textarea:focus { border-color:#0055a5; box-shadow:0 0 5px rgba(0,85,165,0.5); outline:none;}
+button { background:#ffcc00; color:#0055a5; border:none; cursor:pointer; font-weight:600; transition:0.3s; }
+button:hover { background:#e6b800; transform:scale(1.05); }
+
+/* Footer */
+footer { background:linear-gradient(90deg,#0055a5,#0077cc); color:white; text-align:center; padding:20px; margin-top:40px; border-top:5px solid #ffcc00;}
+.social-icons { margin-top:10px;}
+.social-icons a { margin:0 10px; color:white; font-size:20px; transition:0.3s; }
+.social-icons a:hover { color:#ffcc00; transform:scale(1.2); }
+
+/* Back to top */
+#topBtn { position:fixed; bottom:30px; right:30px; background:#ffcc00; color:#0055a5; border:none; padding:10px 15px; border-radius:50%; cursor:pointer; display:none; font-size:18px; box-shadow:0 2px 5px rgba(0,0,0,0.3); transition:0.3s;}
+#topBtn:hover { transform:scale(1.2); }
+
+/* Responsive */
+@media(max-width:768px){
+    header, nav { flex-direction:column; align-items:flex-start;}
+    nav a { margin:5px 0; }
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>برادۆست</h1>
+<nav>
+<a href="#news">هەواڵ</a>
+<a href="#about">دەربارەی من</a>
+<a href="#videos">ڤیدیۆ</a>
+<a href="#contact">پەیوەندی</a>
+<div class="search-box"><input type="text" placeholder="گەڕان..."></div>
+</nav>
+</header>
+
+<section id="news">
+<h2><span class="icon">📰</span>هەواڵ</h2>
+<div class="carousel">
+    <div class="carousel-track">
+        <div class="news-item"><strong>هەواڵ ١:</strong> بابەتە نوێکان <span class="badge">New</span></div>
+        <div class="news-item"><strong>هەواڵ ٢:</strong> بەرنامەکان و ڕاپۆرتەکان <span class="badge">Hot</span></div>
+        <div class="news-item"><strong>هەواڵ ٣:</strong> وەرزی نوێ و ڕاپۆرتی هەواڵ</div>
+    </div>
+    <div class="carousel-buttons">
+        <button id="prev">&#10094;</button>
+        <button id="next">&#10095;</button>
+    </div>
+</div>
+</section>
+
+<section id="about">
+<h2><span class="icon">👤</span>دەربارەی من</h2>
+<p>زانیارییەکی کورتە سەبارەت بە ماڵپەر و کارەکانم.</p>
+</section>
+
+<section id="videos">
+<h2><span class="icon">📺</span>ڤیدیۆ</h2>
+<div class="video-container">
+<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video" allowfullscreen></iframe>
+</div>
+</section>
+
+<section id="contact">
+<h2><span class="icon">✉️</span>پەیوەندی</h2>
+<form>
+<input type="text" placeholder="ناوت بنووسە" required>
+<input type="email" placeholder="ئیمەیڵت بنووسە" required>
+<textarea placeholder="پەیامەکەت بنووسە" rows="5" required></textarea>
+<button type="submit">ناردن</button>
+</form>
+</section>
+
+<footer>
+&copy; 2025 برادۆست
+<div class="social-icons">
+<a href="#" target="_blank">🌐</a>
+<a href="#" target="_blank">🐦</a>
+<a href="#" target="_blank">📘</a>
+</div>
+</footer>
+
+<button id="topBtn" onclick="topFunction()">⬆️</button>
+
+<script>
+// Carousel
+const track = document.querySelector('.carousel-track');
+const items = Array.from(track.children);
+const prevButton = document.getElementById('prev');
+const nextButton = document.getElementById('next');
+let index = 0;
+
+function updateCarousel() {
+    const width = items[0].getBoundingClientRect().width;
+    track.style.transform = `translateX(-${index * width}px)`;
+}
+nextButton.addEventListener('click', () => { index = (index + 1) % items.length; updateCarousel(); });
+prevButton.addEventListener('click', () => { index = (index - 1 + items.length) % items.length; updateCarousel(); });
+window.addEventListener('resize', updateCarousel);
+
+// Back to top button
+const topBtn = document.getElementById("topBtn");
+window.onscroll = function() { scrollFunction(); };
+function scrollFunction() { if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) { topBtn.style.display = "block"; } else { topBtn.style.display = "none"; } }
+function topFunction() { window.scrollTo({top:0, behavior:'smooth'}); }
+
+// Smooth fade-in animation on scroll
+const faders = document.querySelectorAll('section');
+const options = { threshold:0.1 };
+const observer = new IntersectionObserver(function(entries, observer){
+    entries.forEach(entry => { if(entry.isIntersecting){ entry.target.style.opacity =1; entry.target.style.transform='translateY(0)'; } });
+}, options);
+faders.forEach(section => { section.style.opacity=0; section.style.transform='translateY(20px)'; observer.observe(section); });
+
+</script>
+</body>
+</html>
