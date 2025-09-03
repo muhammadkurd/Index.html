@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ku">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>برادۆست - وێبسایتی هەواڵ</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body { font-family:'Poppins',sans-serif; margin:0; padding:0; background:#f5f5f5; color:#333; }
+
+/* Header */
+header { background:#0055a5; color:white; padding:15px 20px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; position:sticky; top:0; z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.2); }
+header h1 { margin:0; font-size:28px; }
+
+/* Navigation */
+nav { display:flex; gap:20px; flex-wrap:wrap; }
+nav a { color:white; text-decoration:none; font-weight:600; padding:5px 10px; transition:0.3s; }
+nav a:hover { background:#ffcc00; color:#0055a5; border-radius:5px; }
+
+/* Sections */
+section { max-width:1000px; margin:40px auto; background:white; border-radius:10px; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
+
+/* Headings */
+h2 { color:#0055a5; margin-top:0; display:flex; align-items:center; }
+
+/* News Carousel */
+.carousel { position:relative; overflow:hidden; border-radius:10px; }
+.carousel-track { display:flex; transition:transform 0.5s ease-in-out; }
+.news-item { min-width:100%; padding:20px; box-sizing:border-box; border-right:1px solid #eee; background:#fff; transition:transform 0.3s, box-shadow 0.3s; border-radius:5px; }
+.news-item:hover { transform:translateY(-5px); box-shadow:0 5px 15px rgba(0,0,0,0.2); }
+.carousel-buttons { position:absolute; top:50%; width:100%; display:flex; justify-content:space-between; transform:translateY(-50%); }
+.carousel-buttons button { background:rgba(0,0,0,0.5); color:white; border:none; padding:10px; cursor:pointer; border-radius:50%; transition:0.3s; }
+.carousel-buttons button:hover { background:#ffcc00; color:#0055a5; }
+
+/* Video */
+.video-container { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.1); margin-top:20px; }
+.video-container iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
+
+/* Contact form */
+input,textarea,button { width:100%; padding:12px; margin:10px 0; border-radius:8px; border:1px solid #ccc; font-size:16px; }
+button { background:#ffcc00; color:#0055a5; border:none; cursor:pointer; font-weight:600; transition:0.3s; }
+button:hover { background:#e6b800; }
+
+/* Footer */
+footer { background:#0055a5; color:white; text-align:center; padding:20px; margin-top:40px; border-top:5px solid #ffcc00; }
+
+/* Icons */
+.icon { margin-right:10px; font-size:24px; transition:transform 0.3s; }
+.icon:hover { transform:scale(1.2) rotate(15deg); }
+
+/* Responsive */
+@media(max-width:768px){
+    header, nav { flex-direction:column; align-items:flex-start; }
+    nav a { margin:5px 0; }
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>برادۆست</h1>
+<nav>
+<a href="#news">هەواڵ</a>
+<a href="#about">دەربارەی من</a>
+<a href="#videos">ڤیدیۆ</a>
+<a href="#contact">پەیوەندی</a>
+</nav>
+</header>
+
+<section id="news">
+<h2><span class="icon">📰</span>هەواڵ</h2>
+<div class="carousel">
+    <div class="carousel-track">
+        <div class="news-item"><strong>هەواڵ ١:</strong> بابەتە نوێکان لە ناوچەکانی کوردستان</div>
+        <div class="news-item"><strong>هەواڵ ٢:</strong> بەرنامەکان و ڕاپۆرتەکان</div>
+        <div class="news-item"><strong>هەواڵ ٣:</strong> وەرزی نوێ و ڕاپۆرتی هەواڵ</div>
+    </div>
+    <div class="carousel-buttons">
+        <button id="prev">&#10094;</button>
+        <button id="next">&#10095;</button>
+    </div>
+</div>
+</section>
+
+<section id="about">
+<h2><span class="icon">👤</span>دەربارەی من</h2>
+<p>زانیارییەکی کورتە سەبارەت بە ماڵپەر و کارەکانم.</p>
+</section>
+
+<section id="videos">
+<h2><span class="icon">📺</span>ڤیدیۆ</h2>
+<div class="video-container">
+<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video" allowfullscreen></iframe>
+</div>
+</section>
+
+<section id="contact">
+<h2><span class="icon">✉️</span>پەیوەندی</h2>
+<form>
+<input type="text" placeholder="ناوت بنووسە" required>
+<input type="email" placeholder="ئیمەیڵت بنووسە" required>
+<textarea placeholder="پەیامەکەت بنووسە" rows="5" required></textarea>
+<button type="submit">ناردن</button>
+</form>
+</section>
+
+<footer>
+&copy; 2025 برادۆست
+</footer>
+
+<script>
+const track = document.querySelector('.carousel-track');
+const items = Array.from(track.children);
+const prevButton = document.getElementById('prev');
+const nextButton = document.getElementById('next');
+let index = 0;
+
+function updateCarousel() {
+    const width = items[0].getBoundingClientRect().width;
+    track.style.transform = `translateX(-${index * width}px)`;
+}
+
+nextButton.addEventListener('click', () => {
+    index = (index + 1) % items.length;
+    updateCarousel();
+});
+
+prevButton.addEventListener('click', () => {
+    index = (index - 1 + items.length) % items.length;
+    updateCarousel();
+});
+
+window.addEventListener('resize', updateCarousel);
+</script>
+
+</body>
+</html>
