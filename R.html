@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ku">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>برادۆست</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    background:#f5f5f5;
+    color:#333;
+}
+
+/* Header */
+header {
+    background:#0055a5; /* Rudaw blue */
+    color:white;
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+
+header h1 {
+    margin:0;
+    font-size:24px;
+}
+
+/* Navigation */
+nav {
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+nav a {
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+nav a:hover { color:#ffcc00; }
+
+/* Sections */
+section {
+    max-width:1000px;
+    margin:40px auto;
+    background:white;
+    border-radius:8px;
+    padding:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Headings */
+h2 {
+    color:#0055a5;
+    margin-top:0;
+}
+
+/* News list style */
+.news-item {
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+}
+.news-item:last-child { border-bottom:none; }
+
+/* Video section */
+.video-container {
+    position:relative;
+    padding-bottom:56.25%;
+    height:0;
+    overflow:hidden;
+}
+.video-container iframe {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+/* Footer */
+footer {
+    background:#0055a5;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* Buttons */
+button {
+    background:#ffcc00;
+    color:#0055a5;
+    border:none;
+    padding:10px 20px;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+button:hover { background:#e6b800; }
+
+input,textarea {
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:5px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>برادۆست</h1>
+<nav>
+<a href="#news">هەواڵ</a>
+<a href="#about">دەربارەی من</a>
+<a href="#videos">ڤیدیۆ</a>
+<a href="#contact">پەیوەندی</a>
+</nav>
+</header>
+
+<section id="news">
+<h2>هەواڵ</h2>
+<div class="news-item"><strong>هەواڵ ١:</strong> بابەتە نوێکان لە ناوچەکانی کوردستان</div>
+<div class="news-item"><strong>هەواڵ ٢:</strong> بەرنامەکان و ڕاپۆرتەکان</div>
+<div class="news-item"><strong>هەواڵ ٣:</strong> وەرزی نوێ و ڕاپۆرتی هەواڵ</div>
+</section>
+
+<section id="about">
+<h2>دەربارەی من</h2>
+<p>زانیارییەکی کورتە سەبارەت بە ماڵپەر و کارەکانم.</p>
+</section>
+
+<section id="videos">
+<h2>ڤیدیۆ</h2>
+<div class="video-container">
+<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video" frameborder="0" allowfullscreen></iframe>
+</div>
+</section>
+
+<section id="contact">
+<h2>پەیوەندی</h2>
+<form>
+<input type="text" placeholder="ناوت بنووسە" required>
+<input type="email" placeholder="ئیمەیڵت بنووسە" required>
+<textarea placeholder="پەیامەکەت بنووسە" rows="5" required></textarea>
+<button type="submit">ناردن</button>
+</form>
+</section>
+
+<footer>
+&copy; 2025 برادۆست
+</footer>
+
+</body>
+</html>
